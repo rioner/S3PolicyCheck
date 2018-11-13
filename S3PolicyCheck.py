@@ -89,7 +89,7 @@ def lambda_handler(event, context):
                     print('バケットポリシー:開けすぎ？')
                     message += bucket['Name'] + ':許可設定が広すぎます。\n'
         
-        #バケットポリシーがない場合とOA環境からのアクセスしか受け付けないバケットの場合はエラーが発生するため、それ以外のエラーのみ吐き出すようにする
+        #想定されるエラーは回避
         except Exception as e:
             if str(e) == 'An error occurred (NoSuchBucketPolicy) when calling the GetBucketPolicy operation: The bucket policy does not exist':
                 pass
